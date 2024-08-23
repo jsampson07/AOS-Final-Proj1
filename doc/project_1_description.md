@@ -6,7 +6,7 @@
 - Start to work this project as early as possible.
 - Write code by yourself and be honest.
 - Ask questions through Piazza or come to office hours.
-- Test program on [VM cluster](./vm_userguide.md) before making compression and [submission](./project_1_submission.md) it.
+- Test program on [VM cluster](./vm_userguide.md) before compressing and [submitting](./project_1_submission.md) it.
 
 ## 1. Introduction
 The goal of the project is to understand and implement a credit-based scheduler in a user-level threads library.
