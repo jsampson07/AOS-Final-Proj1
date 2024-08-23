@@ -12,7 +12,7 @@ The library implements a O(1) priority scheduler and a priority co-scheduler for
 
 You may discuss ideas with colleagues in the class, but the project must be done **individually**.
 Copying others is NEVER allowed for any reason.
-Please refer to the Georgia Tech [honor code](http://www.honor.gatech.edu/).
+Please refer to the Georgia Tech [honor code](https://www.honor.gatech.edu/).
 
 * Clone the repo to get source code
 
