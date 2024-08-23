@@ -8,7 +8,7 @@
 
 * Submit two files: program in tarball (``project_1_GTID.tar.gz``) and report in PDF (``project_1_GTID.pdf``).
 
-* Name both files in this format ``project_1_GTID``, e.g. project\_1\_gburdell3. For more detail, please refer the [submission practice document](https://gatech.instructure.com/courses/230122/files/folder/Projects?preview=28609465).
+* Name both files in this format ``project_1_GTID``, e.g. project\_1\_gburdell3. For more detail, please refer the [submission practice document](https://gatech.instructure.com/courses/407786/files/folder/Projects?preview=53198545).
 
 * Compress only the directory **gtthreads**.
 	- Verify the ``Makefile`` inside working **correctly** on VM cluster to compile/run your program.
