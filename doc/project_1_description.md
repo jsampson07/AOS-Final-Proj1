@@ -1,6 +1,6 @@
 # Project 1 Description
 
-**Due Date - Feb 11, 11:59 PM**
+**Due Date: Sep 16, 11:59 PM**
 
 ## 0. Reminder
 - Start to work this project as early as possible.
