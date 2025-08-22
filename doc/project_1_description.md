@@ -166,7 +166,7 @@ We are clarifying a few points about grading and provide some debugging guidance
 
 - **Code Evaluation**: We will assess whether your code compiles and runs successfully on an ADVOS machine. This assessment will be based on **10 attempts** and will contribute to your grade, but it will carry significantly less weight than your report. Please refer to the rubric we defined in [Section 5](#5-rubric).  
 
-- **If you feel that 10 attempts are not sufficient**, you may include a screenshot in your report showing that the code has run successfully on your own setup at least once.  
+- **If you feel that 10 attempts are not sufficient**, you may include a screenshot in your report showing that the code has run successfully on your ADVOS account setup at least once.  
 
 - **Debugging Tips**:  
     - Ensure you're testing on an x86 machine.  
