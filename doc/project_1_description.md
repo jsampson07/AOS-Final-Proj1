@@ -1,6 +1,6 @@
 # Project 1 Description
 
-**Due Date: Sep 16, 11:59 PM**
+**Due Date: Sep 15, 11:59 PM**
 
 ## 0. Reminder
 - Start to work this project as early as possible.
@@ -12,9 +12,12 @@
 The goal of the project is to understand and implement a credit-based scheduler in a user-level threads library.
 Please refer to existed codecase and implement the credit scheduler design.
 
+You can find general project overview slides on Canvas ([link](https://gatech.instructure.com/courses/467336/files?preview=64313755)).
 To get full score, students will need to finish the program and write a complete report.
 The implementation details are listed at [section 2](#2-implementation);
 the requirment of report is listed at [section 3](#3-report).
+We also release rubric at [section 5](#5-rubric).
+Please note for the essential disclaimers for this project at [section 6](#6-disclaimer).
 
 ### GTThreads Library
 
@@ -148,3 +151,26 @@ Don't wait until last minute to write report.
 As mentioned at [section 3](#3-report), some requirements related to your understanding and design ideas.
 Starting the write-up earlier not only helps you have better overview of the project, but gives you a more complete report to submit.
 
+## 5. Rubric
+
+For students' convenience, we are sharing the project rubric.
+Please note that it might be subject to change, and any updates will be announced in advance.
+![CS6210\_P1\_Rubric](./CS6210_P1_Rubric.png "CS6210 P1 Rubric")
+
+## 6. Disclaimer
+
+Some of you might **occasionally** encounter segmentation faults (segfaults) in your programs due to hardware and OS incompatibility.  
+We are clarifying a few points about grading and provide some debugging guidance:
+
+- **Grading Focus**: Our primary focus for grading will be on the report you submit rather than the code itself. While code functionality is important, it will not be the main determinant of your grade.  
+
+- **Code Evaluation**: We will assess whether your code compiles and runs successfully on an ADVOS machine. This assessment will be based on **10 attempts** and will contribute to your grade, but it will carry significantly less weight than your report. Please refer to the rubric we defined in [Section 5](#5-rubric).  
+
+- **If you feel that 10 attempts are not sufficient**, you may include a screenshot in your report showing that the code has run successfully on your own setup at least once.  
+
+- **Debugging Tips**:  
+    - Ensure you're testing on an x86 machine.  
+    - Use an up-to-date Linux kernel.  
+    - For reference, the ADVOS machines are running kernel version `5.4.0-192-generic`.
+
+Remember, while it's beneficial to fix bugs in your code, don't let this overshadow the importance of your report.
