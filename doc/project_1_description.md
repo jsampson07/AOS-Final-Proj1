@@ -13,6 +13,7 @@ The goal of the project is to understand and implement a credit-based scheduler 
 Please refer to existed codecase and implement the credit scheduler design.
 
 You can find general project overview slides on Canvas ([link](https://gatech.instructure.com/courses/467336/files?preview=64313755)).
+Please ignore the last slide that mentions the “Reference Piazza post.” It’s up to your design decision how you assign different amounts of tasks to each uthread.
 To get full score, students will need to finish the program and write a complete report.
 The implementation details are listed at [section 2](#2-implementation);
 the requirment of report is listed at [section 3](#3-report).
