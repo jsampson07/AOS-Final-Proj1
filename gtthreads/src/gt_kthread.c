@@ -167,12 +167,12 @@ extern kthread_runqueue_t *ksched_find_target(uthread_struct_t *u_obj)
 	ksched_info = &ksched_shared_info;
 	u_gid = u_obj->uthread_gid;
 
-	target_cpu = ksched_info->last_ugroup_kthread[u_gid];
+	target_cpu = ksched_info->last_ugroup_kthread[u_gid]; // so the last thread is in lets say target_cpu = 0, this next one is target_cpu = 1
 
 	do
 	{
 		/* How dumb to assume there is atleast one cpu (haha) !! :-D */
-		target_cpu = ((target_cpu + 1) % GT_MAX_CORES);
+		target_cpu = ((target_cpu + 1) % GT_MAX_CORES); // maybe do not change
 	} while(!kthread_cpu_map[target_cpu]);
 
 	gt_spin_lock(&(ksched_info->ksched_lock));
@@ -214,9 +214,17 @@ static void ksched_cosched(int signal)
 	KTHREAD_PRINT_SCHED_DEBUGINFO(cur_k_ctx, "RELAY(USR)");
 
 #ifdef CO_SCHED
-	uthread_schedule(&sched_find_best_uthread_group);
+	if (is_credit_scheduler == 0) {
+		uthread_schedule(&sched_find_best_uthread_group);
+	} else {
+		uthread_schedule(&sched_find_best_uthread_credit);
+	}
 #else
-	uthread_schedule(&sched_find_best_uthread);
+	if (is_credit_scheduler == 0) {
+		uthread_schedule(&sched_find_best_uthread);
+	} else {
+		uthread_schedule(&sched_find_best_uthread_credit);
+	}
 #endif
 
 	// kthread_unblock_signal(SIGVTALRM);
@@ -264,12 +272,17 @@ static void ksched_priority(int signo)
 		}
 	}
 
-	uthread_schedule(&sched_find_best_uthread);
+	if (is_credit_scheduler == 0) {
+		uthread_schedule(&sched_find_best_uthread);
+	} else {
+		uthread_schedule(&sched_find_best_uthread_credit);
+	}
 
 	// kthread_unblock_signal(SIGVTALRM);
 	// kthread_unblock_signal(SIGUSR1);
 	return;
 }
+
 
 /**********************************************************************/
 
@@ -297,7 +310,11 @@ static void gtthread_app_start(void *arg)
 			/* XXX: gtthread app cleanup has to be done. */
 			continue;
 		}
-		uthread_schedule(&sched_find_best_uthread);
+		if (is_credit_scheduler == 0) {
+			uthread_schedule(&sched_find_best_uthread);
+		} else {
+			uthread_schedule(&sched_find_best_uthread_credit);
+		}
 	}
 	kthread_exit();
 
@@ -390,7 +407,13 @@ extern void gtthread_app_exit()
 			/* XXX: gtthread app cleanup has to be done. */
 			continue;
 		}
-		uthread_schedule(&sched_find_best_uthread);
+		if (is_credit_scheduler == 0) {
+			//printf("WE ARE IN HERE LOL\n");
+			uthread_schedule(&sched_find_best_uthread);
+		} else {
+			//printf("WE ARE IN HERE LOL\n");
+			uthread_schedule(&sched_find_best_uthread_credit);
+		}
 	}
 
 	kthread_block_signal(SIGVTALRM);

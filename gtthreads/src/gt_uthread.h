@@ -19,6 +19,18 @@ typedef struct uthread_struct
 
 	int uthread_state; /* UTHREAD_INIT, UTHREAD_RUNNABLE, UTHREAD_RUNNING, UTHREAD_CANCELLED, UTHREAD_DONE */
 	int uthread_priority; /* uthread running priority */
+
+	long uthread_credits; /* uthread credit amounts (in microseconds)*/
+	int uthread_exact_credits; /* used for printing purposes (as the literal credit amount) */
+	long uthread_init_credits; /* initial uthread credit amount (IN MICROSECONDS) ==> USED FOR REFRESHING*/
+	int is_over; /* whether or not uthread ran out of credits (0 - no, 1 - yes) */
+	struct timeval start_time; /* when the thread started executing */
+
+	struct timeval time_created; /* time when uthread was first created (not scheduled) */
+	struct timeval time_completed; /* time whne uthread finished execution completely */
+	long total_cpu_time; /* time spent by a uthread running on a CPU every time it is scheduled */
+	long exec_time; /* a thread's execution time (time_completed - time_created) */
+
 	int cpu_id; /* cpu it is currently executing on */
 	int last_cpu_id; /* last cpu it was executing on */
 
@@ -39,4 +51,9 @@ typedef struct uthread_struct
 
 struct __kthread_runqueue;
 extern void uthread_schedule(uthread_struct_t * (*kthread_best_sched_uthread)(struct __kthread_runqueue *));
+extern int is_credit_scheduler;
+extern void gt_yield(uthread_struct_t *running_t, int enabled);
+extern int enable_yield;
+extern int enable_lb;
+extern uthread_struct_t *all_uthreads[];
 #endif

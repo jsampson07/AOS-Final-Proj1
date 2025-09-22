@@ -83,5 +83,9 @@ extern uthread_struct_t *sched_find_best_uthread(kthread_runqueue_t *kthread_run
  * Also globally sets the penalty, if choosing a lower priority uthread. */
 extern uthread_struct_t *sched_find_best_uthread_group(kthread_runqueue_t *kthread_runq);
 
+extern uthread_struct_t *sched_find_best_uthread_credit(kthread_runqueue_t *kthread_runq);
+
+extern void print_runq_credit_stats(runqueue_t *runq, char *runq_str);
+
 
 #endif

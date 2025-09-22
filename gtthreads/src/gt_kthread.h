@@ -70,6 +70,15 @@ extern ksched_shared_info_t ksched_shared_info;
 /* create a kthread */
 extern int kthread_create(kthread_t *tid, int (*start_fun)(void *), void *arg);
 
+/* load balance for a kthread */
+extern int kthread_load_balance();
+
+/* handler for priority scheduling lb */
+extern int kthread_lb_priority();
+
+/* handler for credit scheduling lb */
+extern int kthread_lb_credit();
+
 /**********************************************************************/
 /* apic-id of the cpu on which kthread is running (kthread_cpu_map) */
 static inline unsigned char kthread_apic_id(void)
